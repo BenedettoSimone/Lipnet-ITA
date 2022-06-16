@@ -57,7 +57,7 @@ subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'charset-normaliz
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'cmake==3.22.3'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'cycler==0.11.0'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'dlib==19.23.1'])
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'face-recognition==1.4.0'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'face-recognition==1.3.0'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'flatbuffers==2.0'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'fonttools==4.31.1'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'gast==0.4.0'])
