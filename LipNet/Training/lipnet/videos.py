@@ -4,7 +4,7 @@ sys.path.insert(0, CURRENT_PATH)
 
 import numpy as np
 from keras import backend as K
-from scipy import ndimage
+import imageio
 from skimage.transform import resize
 import skvideo.io
 import dlib
@@ -115,7 +115,7 @@ class Video(object):
 
     def from_frames(self, path):
         frames_path = sorted([os.path.join(path, x) for x in os.listdir(path)])
-        frames = [ndimage.imread(frame_path) for frame_path in frames_path]
+        frames = [imageio.imread(frame_path) for frame_path in frames_path]
         self.handle_type(frames)
         return self
 
