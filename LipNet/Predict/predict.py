@@ -5,12 +5,12 @@ sys.path.insert(0, LIPNET_PATH)
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
-from lipnet.videos import Video
-from lipnet.visualization import show_video_subtitle
-from lipnet.decoders import Decoder
-from lipnet.helpers import labels_to_text
-from lipnet.spell import Spell
-from lipnet.model import LipNet
+from LipNet.Training.lipnet.videos import Video
+from LipNet.Training.lipnet.visualization import show_video_subtitle
+from LipNet.Training.lipnet.decoders import Decoder
+from LipNet.Training.lipnet.helpers import labels_to_text
+from LipNet.Training.lipnet.spell import Spell
+from LipNet.Training.lipnet.model import LipNet
 from keras.optimizers import Adam
 from keras import backend as K
 import numpy as np
