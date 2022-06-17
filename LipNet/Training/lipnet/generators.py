@@ -149,8 +149,11 @@ class BasicGenerator(keras.callbacks.Callback):
         input_length = []
         source_str = []
         for path in X_data_path:
+            separator="/"
             video = Video().from_frames(path)
-            align = self.get_align(path.split('/')[-1])
+            if "\\" in path:
+                separator="\\"
+            align = self.get_align(path.split(separator)[-1])
             video_unpadded_length = video.length
             if self.curriculum is not None:
                 video, align, video_unpadded_length = self.curriculum.apply(video, align)
