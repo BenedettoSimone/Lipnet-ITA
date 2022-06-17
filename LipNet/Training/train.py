@@ -63,7 +63,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
     csv_logger  = CSVLogger(os.path.join(LOG_DIR, "{}-{}.csv".format('training',run_name)), separator=',', append=True)
     checkpoint  = ModelCheckpoint(os.path.join(OUTPUT_DIR, run_name, "weights{epoch:02d}.h5"), monitor='val_loss', save_weights_only=True, mode='auto', save_freq=1)
 
-    lipnet.model.fit(generator=lip_gen.next_train(),
+    lipnet.model.fit(lip_gen.next_train(),
                         steps_per_epoch=lip_gen.default_training_steps, epochs=stop_epoch,
                         validation_data=lip_gen.next_val(), validation_steps=lip_gen.default_validation_steps,
                         callbacks=[checkpoint, statistics, visualize, lip_gen, tensorboard, csv_logger],
