@@ -42,7 +42,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
                             absolute_max_string_len=absolute_max_string_len, output_size=lip_gen.get_output_size())
     lipnet.summary()
 
-    adam = Adam(lr=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
+    adam = Adam(learning_rate=0.0001, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 
     # the loss calc occurs elsewhere, so use a dummy lambda func for the loss
     lipnet.model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer=adam)
@@ -61,20 +61,22 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
     visualize   = Visualize(os.path.join(OUTPUT_DIR, run_name), lipnet, lip_gen.next_val(), decoder, num_display_sentences=minibatch_size)
     tensorboard = TensorBoard(log_dir=os.path.join(LOG_DIR, run_name))
     csv_logger  = CSVLogger(os.path.join(LOG_DIR, "{}-{}.csv".format('training',run_name)), separator=',', append=True)
-    checkpoint  = ModelCheckpoint(os.path.join(OUTPUT_DIR, run_name, "weights{epoch:02d}.h5"), monitor='val_loss', save_weights_only=True, mode='auto', period=1)
+    checkpoint  = ModelCheckpoint(os.path.join(OUTPUT_DIR, run_name, "weights{epoch:02d}.h5"), monitor='val_loss', save_weights_only=True, mode='auto', save_freq=1)
 
-    lipnet.model.fit_generator(generator=lip_gen.next_train(),
+    lipnet.model.fit(generator=lip_gen.next_train(),
                         steps_per_epoch=lip_gen.default_training_steps, epochs=stop_epoch,
                         validation_data=lip_gen.next_val(), validation_steps=lip_gen.default_validation_steps,
                         callbacks=[checkpoint, statistics, visualize, lip_gen, tensorboard, csv_logger],
                         initial_epoch=start_epoch,
                         verbose=1,
-                        max_q_size=5,
-                        workers=2,
-                        pickle_safe=True)
+                        #max_q_size=5,
+                        workers=2
+    #,
+                        #pickle_safe=True
+                        )
 
 if __name__ == '__main__':
-    run_name = datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
+    run_name = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
     # 1st parameter - run_name
     # 2nd parameter - start_epoch
     # 3rd parameter - stop_epoch
