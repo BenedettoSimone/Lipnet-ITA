@@ -43,8 +43,8 @@ For the dataset building, we created a tool to record the videos (https://github
 ```
 Dataset:
 ├───s1
-│   ├───0-bs.mpg
-│   ├───1-bs.mpg
+│   ├─── 0-bs.mpg
+│   ├─── 1-bs.mpg
 │   └───...
 ├───s2
 │   └───...
