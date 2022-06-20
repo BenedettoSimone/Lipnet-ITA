@@ -54,8 +54,12 @@ Dataset:
 
 ### 2.2 Forced alignment
 Then, we applied for each video the audio and text synchronization (aka forced alignment) using [Aeneas](https://github.com/readbeyond/aeneas). 
-<br>
-To perform the alignment we processed each folder individually, working on a copy of the dataset. With the ``nomescript`` script, which acts on all folders in the dataset, we created a json file for each video following the rules established by Aeneas. The output of each file follows this format:
+<br><br>
+After installing Aeneas, we created a copy of dataset and we followed these steps in the ``terminal``:
+1. With the script ``alignment/create_fragments_txt.py``, we created a ``txt`` file for each video following the rules established by Aeneas. 
+2. 
+
+The output of each file follows this format:
 <details><summary>Show format</summary>
 <p>
 
