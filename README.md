@@ -3,8 +3,18 @@
 Keras implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599).
 Reference - https://github.com/rizkiarm/LipNet
 
+Table of contents
+=================
 
-## Requirements
+<!--ts-->
+   * [Requirements](#requirements)
+   * [Dataset](#dataset)
+      * [Building](#building)
+<!--te-->
+
+
+
+## 1. Requirements
 ```
 ---------
 ```
@@ -17,7 +27,7 @@ Reference - https://github.com/rizkiarm/LipNet
 
 
 
-## Dataset
+## 2. Dataset
 In this project we will use an Italian dataset containing the following sentences.
 
 
@@ -34,8 +44,9 @@ In this project we will use an Italian dataset containing the following sentence
 |  Piacere Luigi, come stai?  |   8   |  Prego.  |   18   |
 |  Tutto bene, tu?  |  9   |
 
+<br>
 
-<br><br>
+### 2.1 Building
 For the dataset building, we created a tool to record the videos (https://github.com/BenedettoSimone/Video-Recorder). The videos have a dimension of ``360x288 x 25fps``. Use the information provided in the repository and on the main page to replicate our work.
 <br><br>After gathering the videos for each subject, we organized the dataset with the following structure.
 
