@@ -174,7 +174,7 @@ class BasicGenerator(keras.callbacks.Callback):
                   'the_labels': Y_data,
                   'input_length': input_length,
                   'label_length': label_length,
-                  'source_str': source_str  # used for visualization only
+                  #'source_str': source_str  # used for visualization only
                   }
         outputs = {'ctc': np.zeros([size])}  # dummy data for dummy loss function
 

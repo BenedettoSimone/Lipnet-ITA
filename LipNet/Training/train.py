@@ -16,22 +16,27 @@ from lipnet.model import LipNet
 import numpy as np
 import datetime
 
+
 np.random.seed(55)
 
-DATASET_DIR  = os.path.join(CURRENT_PATH, 'datasets')
-OUTPUT_DIR   = os.path.join(CURRENT_PATH, 'results')
-LOG_DIR      = os.path.join(CURRENT_PATH, 'logs')
+DATASET_DIR = os.path.join(CURRENT_PATH, 'datasets')
+OUTPUT_DIR = os.path.join(CURRENT_PATH, 'results')
+LOG_DIR = os.path.join(CURRENT_PATH, 'logs')
 
-PREDICT_GREEDY      = False
-PREDICT_BEAM_WIDTH  = 200
-PREDICT_DICTIONARY  = os.path.join(CURRENT_PATH,'dictionaries','grid.txt')
+PREDICT_GREEDY = False
+PREDICT_BEAM_WIDTH = 200
+PREDICT_DICTIONARY = os.path.join(CURRENT_PATH,'dictionaries','grid.txt')
+
 
 def curriculum_rules(epoch):
     return { 'sentence_length': -1, 'flip_probability': 0.5, 'jitter_probability': 0.05 }
 
 
 def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, absolute_max_string_len, minibatch_size):
+
     curriculum = Curriculum(curriculum_rules)
+
+
     lip_gen = BasicGenerator(dataset_path=DATASET_DIR,
                                 minibatch_size=minibatch_size,
                                 img_c=img_c, img_w=img_w, img_h=img_h, frames_n=frames_n,
@@ -63,6 +68,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
     csv_logger  = CSVLogger(os.path.join(LOG_DIR, "{}-{}.csv".format('training',run_name)), separator=',', append=True)
     checkpoint  = ModelCheckpoint(os.path.join(OUTPUT_DIR, run_name, "weights{epoch:02d}.h5"), monitor='val_loss', save_weights_only=True, mode='auto', save_freq=1)
 
+
     lipnet.model.fit(lip_gen.next_train(),
                         steps_per_epoch=lip_gen.default_training_steps, epochs=stop_epoch,
                         validation_data=lip_gen.next_val(), validation_steps=lip_gen.default_validation_steps,
@@ -74,6 +80,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
     #,
                         #pickle_safe=True
                         )
+
 
 if __name__ == '__main__':
     run_name = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
