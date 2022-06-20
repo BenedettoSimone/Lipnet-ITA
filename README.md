@@ -52,3 +52,6 @@ Dataset:
     └───...
 ```
 
+## Developed by
+[Simone Benedetto](https://github.com/BenedettoSimone) <br>
+[Salerno Daniele](https://github.com/DanieleSalerno)
