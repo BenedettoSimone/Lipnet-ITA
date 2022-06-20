@@ -53,7 +53,9 @@ Dataset:
 ```
 
 ### 2.2 Forced alignment
-Then, we applied for each video the audio and text synchronization (aka forced alignment) using [Aeneas](https://github.com/readbeyond/aeneas). The output of each file follows this format:
+Then, we applied for each video the audio and text synchronization (aka forced alignment) using [Aeneas](https://github.com/readbeyond/aeneas). 
+<br>
+To perform the alignment we processed each folder individually, working on a copy of the dataset. With the ``nomescript`` script, which acts on all folders in the dataset, we created a json file for each video following the rules established by Aeneas. The output of each file follows this format:
 <details><summary>Show format</summary>
 <p>
 
@@ -145,6 +147,21 @@ Then, we applied for each video the audio and text synchronization (aka forced a
 ```
 </p>
 </details>
+
+
+After running the script the copy of dataset will have this structure.
+
+```
+DatasetCopy:
+├───s1
+│   ├─── 0-bs.mpg
+│   ├─── 0-bs.txt
+│   └───...
+├───s2
+│   └───...
+└───...
+    └───...
+```
 
 As a final step, we transformed each json file into an ``.align`` file having the following format:
 ```
