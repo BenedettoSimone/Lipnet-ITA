@@ -3,16 +3,6 @@
 Keras implementation of the method described in the paper 'LipNet: End-to-End Sentence-level Lipreading' by Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, and Nando de Freitas (https://arxiv.org/abs/1611.01599).
 Reference - https://github.com/rizkiarm/LipNet
 
-Table of contents
-=================
-
-<!--ts-->
-   * [Requirements](#requirements)
-   * [Dataset](#dataset)
-      * [Building](#building)
-<!--te-->
-
-
 
 ## 1. Requirements
 ```
