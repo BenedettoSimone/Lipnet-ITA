@@ -33,7 +33,7 @@ def write_file(file, index):
 
 if __name__ == '__main__':
     main_path = input("Enter dataset path:")
-    main_path=main_path+"/"
+    main_path = main_path+"/"
     os.chdir(main_path)
 
     for dir in os.listdir(os.getcwd()):
