@@ -76,7 +76,7 @@ ForcedAlignment:
 
 Then we followed these steps in the ``terminal``:
 1. With the script ``alignment/create_fragments_txt.py``, we created a ``txt`` file for each video following the rules established by Aeneas.
-2. With the script ``alignment/autorunAlign.py``, we dinamically created the ``config`` file and we generated the ``align`` folder in the ``ForcedAlignment`` folder. 
+2. With the script ``alignment/autorunAlign.py``, we dinamically created the ``config`` file and we generated the ``align_json`` folder in the ``ForcedAlignment`` folder. 
 
 After running the script the ``ForcedAlignment`` folder will have this structure.
 
@@ -89,7 +89,7 @@ ForcedAlignment:
 │   │   │   └───...
 │   │   ├───s2
 │   │       └───...
-│   ├──align:
+│   ├──align_json:
 │       ├───s1
 │       │   ├─── 0-bs.json
 │       │   ├─── 1-bs.json
@@ -110,8 +110,9 @@ ForcedAlignment:
 49000 59000 word
 59000 74000 sil
 ```
-The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "bin", etc. To perform this conversion ....
+The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "word", etc.
 
+Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
