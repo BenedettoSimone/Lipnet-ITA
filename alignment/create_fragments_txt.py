@@ -36,11 +36,11 @@ if __name__ == '__main__':
     main_path=main_path+"/"
     os.chdir(main_path)
     print(os.getcwd())
-    for dir in os.listdir():
+    for dir in os.listdir(os.getcwd()):
         # dir s*
         os.chdir(dir)
 
-        for video in os.listdir():
+        for video in os.listdir(os.getcwd()):
             if ".txt" not in video:
                 print(video)
                 index = ""
