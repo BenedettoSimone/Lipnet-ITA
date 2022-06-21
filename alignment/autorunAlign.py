@@ -43,7 +43,7 @@ def create_config():
 def replacing_substitute(dir_name):
     with open(main_path+"\config.txt", 'r') as file :
         filedata = file.read()
-    print(dir_name)
+
     # Replace the target string
 
 
@@ -68,14 +68,14 @@ def mkdir_p(path):
 
 if __name__ == '__main__':
     main_path = input("Enter dataset path:")
-    print(main_path)
+
     path = os.path.dirname(main_path)
     to_sub="substitute"
     mkdir_p(str(path) + "/align")
     create_config()
     for dir in os.listdir(main_path):
         if "config" not in dir:
-            print(dir)
+            print("\nALIGNING: "+dir)
             replacing_substitute(dir)
             to_sub=dir
             #dir s*
@@ -83,9 +83,9 @@ if __name__ == '__main__':
             #print(path)
 
             os.system("python -m aeneas.tools.execute_job "+main_path+" "+str(path)+"/align --skip-validator")
-            print("CANEWEEEEEEEEEEEEE")
+            print('UNZIPPING: '+ dir)
             with ZipFile(path+"/align/result.zip",'r') as zipObj:
-                print("UNZIPPING")
+
                 zipObj.extractall(path+"/align/"+dir)
 
             os.remove(path+"/align/result.zip")
@@ -93,5 +93,3 @@ if __name__ == '__main__':
 
 
 
-    # implement pip as a subprocess:
-    #subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'idna==3.3'])
