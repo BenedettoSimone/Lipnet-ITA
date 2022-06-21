@@ -1,22 +1,22 @@
 import os
 
-phrases = ['Salve quanto costa quell articolo',
-           'È in offerta, costa 10 euro',
+phrases = ['Salve quanto costa quell\' articolo',
+           'E\' in offerta, costa 10 euro',
            'Perfetto vorrei comprarne due.',
            'Certo ecco a lei vuole un sacchetto',
-           'Sì grazie e arrivederci',
+           'Si\' grazie e arrivederci',
            'Le auguro una buona giornata',
            'Buongiorno io sono Mario',
            'Buonasera io sono Mario',
            'Piacere Luigi come stai',
            'Tutto bene tu',
            'Tutto bene grazie',
-           'Prendiamo un caffè al bar',
-           'Certo volentieri, io lo prenderò macchiato',
+           'Prendiamo un caffe\' al bar',
+           'Certo volentieri, io lo prendero\' macchiato',
            'A che ora arriva il pullman',
            'Dovrebbe arrivare tra qualche minuto',
            'Quanto costa il biglietto',
-           'Purtroppo non lo so però potresti chiedere all autista',
+           'Purtroppo non lo so pero\' potresti chiedere all\' autista',
            'Va bene grazie lo stesso',
            'Prego'
            ]
@@ -32,9 +32,10 @@ def write_file(file, index):
 
 
 if __name__ == '__main__':
-
-    main_path = "dataset/"
+    main_path = input("Enter dataset path:")
+    main_path=main_path+"/"
     os.chdir(main_path)
+    print(os.getcwd())
     for dir in os.listdir():
         # dir s*
         os.chdir(dir)
