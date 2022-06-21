@@ -26,22 +26,30 @@ def mkdir_p(path):
 if __name__ == '__main__':
 
     dir_path = input("Enter align folder path:")
+    print(dir_path)
+
+
     target_path = os.path.dirname(dir_path)
-    target_path = target_path + "align/"
+
+    print(target_path)
+    target_path = target_path + "/align/"
+    print(target_path)
     mkdir_p(target_path)
 
     os.chdir(dir_path)
-    for dir in os.listdir():
+    for dir in os.listdir(os.getcwd()):
+        print("\nFOLDER: "+dir)
         os.chdir(dir)
-        mkdir_p('../../' + target_path + dir)
-        for file in os.listdir():
+        mkdir_p(target_path + dir)
+        for file in os.listdir(os.getcwd()):
             # Opening JSON file
+            print("-->CONVERTING: "+file)
             f = open(file)
 
             # returns JSON object as a dictionary
             data = json.load(f)
 
-            with open("../../" + target_path + dir + "/" + file[:-5] + ".align", 'w+') as file_name:
+            with open(target_path + dir + "/" + file[:-5] + ".align", 'w+') as file_name:
                 write_file(file_name)
 
             # Closing file

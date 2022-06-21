@@ -58,7 +58,7 @@ if __name__ == '__main__':
     to_sub = "substitute"
 
     # create folder to store aligned folder
-    mkdir_p(str(path) + "/align")
+    mkdir_p(str(path) + "/align_json")
 
     # create config file
     create_config()
@@ -71,10 +71,10 @@ if __name__ == '__main__':
             replacing_substitute(dir)
             to_sub = dir
 
-            os.system("python -m aeneas.tools.execute_job " + main_path + " " + str(path) + "/align --skip-validator")
+            os.system("python -m aeneas.tools.execute_job " + main_path + " " + str(path) + "/align_json --skip-validator")
 
             print('UNZIPPING: ' + dir)
-            with ZipFile(path + "/align/result.zip", 'r') as zipObj:
-                zipObj.extractall(path + "/align/" + dir)
+            with ZipFile(path + "/align_json/result.zip", 'r') as zipObj:
+                zipObj.extractall(path + "/align_json/" + dir)
 
-            os.remove(path + "/align/result.zip")
+            os.remove(path + "/align_json/result.zip")
