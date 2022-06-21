@@ -99,8 +99,7 @@ ForcedAlignment:
 ```
 
 
-3.
-As a final step, we transformed each json file into an ``.align`` file having the following format:
+3. As a final step, with the script ``alignment/alignment_converter.py``, we transformed each json file into an ``.align`` file having the following format:
 ```
 0 12000 sil
 12000 19000 word
