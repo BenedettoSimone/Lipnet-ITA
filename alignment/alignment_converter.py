@@ -2,8 +2,6 @@ import errno
 import json
 import os
 
-DIR_PATH = 'align_json'
-TARGET_PATH = 'align/'
 
 # Iterating through the json list
 def write_file(file):
@@ -12,6 +10,7 @@ def write_file(file):
         end = int((float(i['end']) * 25) * 1000)
         if file is not None:
             file.write(str(begin) + " " + str(end) + " " + i['lines'][0] + "\n")
+
 
 # Recursvive directory creation function - makes all intermediate-level directories needed to contain the leaf directory
 def mkdir_p(path):
@@ -26,12 +25,15 @@ def mkdir_p(path):
 
 if __name__ == '__main__':
 
-    mkdir_p(TARGET_PATH)
+    dir_path = input("Enter align folder path:")
+    target_path = os.path.dirname(dir_path)
+    target_path = target_path + "align/"
+    mkdir_p(target_path)
 
-    os.chdir(DIR_PATH)
+    os.chdir(dir_path)
     for dir in os.listdir():
         os.chdir(dir)
-        mkdir_p('../../'+TARGET_PATH+dir)
+        mkdir_p('../../' + target_path + dir)
         for file in os.listdir():
             # Opening JSON file
             f = open(file)
@@ -39,7 +41,7 @@ if __name__ == '__main__':
             # returns JSON object as a dictionary
             data = json.load(f)
 
-            with open("../../"+TARGET_PATH+dir+"/"+file[:-5]+".align", 'w+') as file_name:
+            with open("../../" + target_path + dir + "/" + file[:-5] + ".align", 'w+') as file_name:
                 write_file(file_name)
 
             # Closing file
