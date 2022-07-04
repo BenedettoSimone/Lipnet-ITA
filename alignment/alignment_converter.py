@@ -25,14 +25,14 @@ def mkdir_p(path):
 
 if __name__ == '__main__':
 
-    dir_path = input("Enter align folder path:")
+    dir_path = input("Enter aligns folder path:")
     print(dir_path)
 
 
     target_path = os.path.dirname(dir_path)
 
     print(target_path)
-    target_path = target_path + "/align/"
+    target_path = target_path + "/aligns/"
     print(target_path)
     mkdir_p(target_path)
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
             # returns JSON object as a dictionary
             data = json.load(f)
 
-            with open(target_path + dir + "/" + file[:-5] + ".align", 'w+') as file_name:
+            with open(target_path + dir + "/" + file[:-5] + ".aligns", 'w+') as file_name:
                 write_file(file_name)
 
             # Closing file
