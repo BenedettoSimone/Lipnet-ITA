@@ -6,19 +6,11 @@ Reference - https://github.com/rizkiarm/LipNet
 
 ## 1. Requirements
 ```
-
-
-
+python 3.6
+pip install -r requirements.txt
+zipfile package
 
 ```
-
-
-
-
-
-
-
-
 
 ## 2. Dataset
 In this project we will use an Italian dataset containing the following sentences.
@@ -44,7 +36,7 @@ For the dataset building, we created a tool to record the videos (https://github
 <br><br>After gathering the videos for each subject, we organized the dataset with the following structure.
 
 ```
-Dataset:
+dataset:
 ├───s1
 │   ├─── 0-bs.mpg
 │   ├─── 1-bs.mpg
@@ -113,6 +105,9 @@ ForcedAlignment:
 The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "word", etc.
 
 Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
+
+# TODO
+Insert dataset and align in data folder 
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
