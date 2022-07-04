@@ -49,7 +49,7 @@ if __name__ == '__main__':
             # returns JSON object as a dictionary
             data = json.load(f)
 
-            with open(target_path + dir + "/" + file[:-5] + ".aligns", 'w+') as file_name:
+            with open(target_path + dir + "/" + file[:-5] + ".align", 'w+') as file_name:
                 write_file(file_name)
 
             # Closing file
