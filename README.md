@@ -7,9 +7,9 @@ Reference - https://github.com/rizkiarm/LipNet
 ## 1. Requirements
 ```
 python 3.6
-pip install -r requirements.txt
+cd lipnet pip install -r requirements.txt
 zipfile package
-
+scikit image
 ```
 
 ## 2. Dataset
@@ -104,7 +104,7 @@ ForcedAlignment:
 ```
 The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "word", etc.
 
-Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
+Now we have the ``aligns`` folder in the ``ForcedAlignment`` folder.
 
 # TODO
 Insert dataset and align in data folder 
