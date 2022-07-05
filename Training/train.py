@@ -74,7 +74,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
                         pickle_safe=True)
 
 if __name__ == '__main__':
-    run_name = datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S')
+    run_name = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
     # 1st parameter - run_name
     # 2nd parameter - start_epoch
     # 3rd parameter - stop_epoch
@@ -84,4 +84,4 @@ if __name__ == '__main__':
     # 7th parameter - frames_n
     # 8th parameter - absolute_max_string_length
     # 9th parameter - minibatch_size
-    train(run_name, 0, 5000, 3, 100, 50, 75, 32, 2)
+    train(run_name, 0, 5000, 3, 100, 50, 75, 54, 2)

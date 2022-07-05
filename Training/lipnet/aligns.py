@@ -1,7 +1,10 @@
 import numpy as np
 
+
+
+
 class Align(object):
-    def __init__(self, absolute_max_string_len=200, label_func=None):
+    def __init__(self, absolute_max_string_len=32, label_func=None):
         self.label_func = label_func
         self.absolute_max_string_len = absolute_max_string_len
 
@@ -10,6 +13,7 @@ class Align(object):
         with open(path, 'r') as f:
             lines = f.readlines()
         align = [(int(y[0])/1000, int(y[1])/1000, y[2]) for y in [x.strip().split(" ") for x in lines]]
+
         self.build(align)
         print(align)
         return self
@@ -39,18 +43,23 @@ class Align(object):
         return self.label_func(sentence)
 
     def get_padded_label(self, label):
+        print(self.absolute_max_string_len)
+        print(len(label))
         padding = np.ones((self.absolute_max_string_len-len(label))) * -1
         print(padding)
         return np.concatenate((np.array(label), padding), axis=0)
 
     @property
     def word_length(self):
+
         return len(self.sentence.split(" "))
 
     @property
     def sentence_length(self):
+
         return len(self.sentence)
 
     @property
     def label_length(self):
+
         return len(self.label)

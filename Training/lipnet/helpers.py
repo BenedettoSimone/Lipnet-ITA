@@ -18,5 +18,3 @@ def labels_to_text(labels):
     return text
 
 
-if __name__ == '__main__':
-    print(text_to_labels("CIAO"))
