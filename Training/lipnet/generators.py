@@ -113,10 +113,10 @@ class BasicGenerator(keras.callbacks.Callback):
         align_hash = {}
         for video_path in video_list:
             #get folder name
-            folder_name = os.path.splitext(video_path)[0].split('/')[-2]
+            folder_name = os.path.splitext(video_path)[0].split(os.path.sep)[-2]
 
             #get video name
-            video_id = os.path.splitext(video_path)[0].split('/')[-1]
+            video_id = os.path.splitext(video_path)[0].split(os.path.sep)[-1]
             video_id=folder_name+"/"+video_id
             align_path = os.path.join(self.align_path, video_id)+".align"
 
@@ -155,8 +155,9 @@ class BasicGenerator(keras.callbacks.Callback):
         source_str = []
         for path in X_data_path:
             video = Video().from_frames(path)
-            folder_align = path.split('/')[-2]
-            video_id = path.split('/')[-1]
+
+            folder_align = path.split(os.path.sep)[-2]
+            video_id = path.split(os.path.sep)[-1]
             complete_name = folder_align + '/' + video_id
             align = self.get_align(complete_name)
 
