@@ -107,7 +107,7 @@ The first number indicates the start of that word. The second number indicates t
 Now we have the ``aligns`` folder in the ``ForcedAlignment`` folder.
 
 # TODO
-Insert dataset and align in data folder 
+Insert dataset in dataset folder and align in data folder 
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
