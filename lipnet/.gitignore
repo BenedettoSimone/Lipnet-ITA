@@ -162,11 +162,11 @@ venv.bak/
 
 .vscode
 
-data/aligns/*
-data/dataset/*
-data/dataset_eval/*
+# data/aligns/*
+# data/dataset/*
+# data/dataset_eval/*
 data/res/*
 data/res_logs/*
 misc/
-*.mpg
-GRID/*
+# *.mpg
+# GRID/*
