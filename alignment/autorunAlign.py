@@ -23,7 +23,7 @@ def create_config():
                         "os_task_file_smil_page_ref=$PREFIX.xhtml\n " +
                         "os_task_file_smil_audio_ref=$PREFIX.mpg\n " +
 
-                        "job_language=en\n " +
+                        "job_language=ita\n " +
                         "job_description=Example 1 (flat hierarchy, parsed text files)"
                         )
 
