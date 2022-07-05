@@ -113,11 +113,11 @@ class BasicGenerator(keras.callbacks.Callback):
         align_hash = {}
         for video_path in video_list:
             #get folder name
-            folder_name = os.path.splitext(video_path)[0].split('\\')[-2]
+            folder_name = os.path.splitext(video_path)[0].split('/')[-2]
 
             #get video name
-            video_id = os.path.splitext(video_path)[0].split('\\')[-1]
-            video_id=folder_name+"\\"+video_id
+            video_id = os.path.splitext(video_path)[0].split('/')[-1]
+            video_id=folder_name+"/"+video_id
             align_path = os.path.join(self.align_path, video_id)+".align"
 
             align_hash[video_id] = Align(self.absolute_max_string_len, text_to_labels).from_file(align_path)
@@ -128,6 +128,7 @@ class BasicGenerator(keras.callbacks.Callback):
         self.train_list = self.enumerate_videos(os.path.join(self.train_path, '*', '*'))
         self.val_list   = self.enumerate_videos(os.path.join(self.val_path, '*', '*'))
         self.align_hash = self.enumerate_align_hash(self.train_list + self.val_list)
+        print(self.align_hash)
         #with open(self.get_cache_path(), 'wb') as fp:
         #    pickle.dump((self.train_list, self.val_list, self.align_hash), fp)
 
@@ -154,7 +155,11 @@ class BasicGenerator(keras.callbacks.Callback):
         source_str = []
         for path in X_data_path:
             video = Video().from_frames(path)
-            align = self.get_align(path.split('/')[-1])
+            folder_align = path.split('/')[-2]
+            video_id = path.split('/')[-1]
+            complete_name = folder_align + '/' + video_id
+            align = self.get_align(complete_name)
+
             video_unpadded_length = video.length
             if self.curriculum is not None:
                 video, align, video_unpadded_length = self.curriculum.apply(video, align)
