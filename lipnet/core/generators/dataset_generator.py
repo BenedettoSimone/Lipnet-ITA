@@ -43,8 +43,8 @@ class DatasetGenerator(object):
 			with open(cache_path, 'wb') as f:
 				pickle.dump((train_videos, train_aligns, val_videos, val_aligns), f)
 
-		print('Found {} videos and {} aligns for training'.format(len(train_videos), len(train_aligns)))
-		print('Found {} videos and {} aligns for validation\n'.format(len(val_videos), len(val_aligns)))
+		print('Found {} videos and {} align for training'.format(len(train_videos), len(train_aligns)))
+		print('Found {} videos and {} align for validation\n'.format(len(val_videos), len(val_aligns)))
 
 		self.train_generator = BatchGenerator(train_videos, train_aligns, self.batch_size)
 		self.val_generator   = BatchGenerator(val_videos, val_aligns, self.batch_size)
@@ -87,7 +87,7 @@ class DatasetGenerator(object):
 
 		for path in videos:
 			video_name = get_file_name(path)
-			align_path = os.path.join(self.aligns_path, video_name) + '.aligns'
+			align_path = os.path.join(self.aligns_path, video_name) + '.align'
 
 			align_hash[video_name] = align_from_file(align_path, self.max_string)
 

@@ -162,7 +162,7 @@ venv.bak/
 
 .vscode
 
-# data/aligns/*
+# data/align/*
 # data/dataset/*
 # data/dataset_eval/*
 data/res/*

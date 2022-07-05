@@ -25,14 +25,14 @@ def mkdir_p(path):
 
 if __name__ == '__main__':
 
-    dir_path = input("Enter aligns folder path:")
+    dir_path = input("Enter align folder path:")
     print(dir_path)
 
 
     target_path = os.path.dirname(dir_path)
 
     print(target_path)
-    target_path = target_path + "/aligns/"
+    target_path = target_path + "/align/"
     print(target_path)
     mkdir_p(target_path)
 
