@@ -1,8 +1,8 @@
 def text_to_labels(text):
     ret = []
     for char in text:
-        if char >= 'a' and char <= 'z':
-            ret.append(ord(char) - ord('a'))
+        if char.lower() >= 'a' and char.lower() <= 'z':
+            ret.append(ord(char.lower()) - ord('a'))
         elif char == ' ':
             ret.append(26)
     return ret
@@ -16,3 +16,7 @@ def labels_to_text(labels):
         elif c == 26:
             text += ' '
     return text
+
+
+if __name__ == '__main__':
+    print(text_to_labels("CIAO"))
