@@ -100,12 +100,12 @@ class BasicGenerator(keras.callbacks.Callback):
             except:
                 print("Error loading video: "+video_path)
                 continue
-            #if K.image_data_format() == 'channels_first' and video.data.shape != (self.img_c,self.frames_n,self.img_w,self.img_h):
-               # print("Video "+video_path+" has incorrect shape "+str(video.data.shape)+", must be "+str((self.img_c,self.frames_n,self.img_w,self.img_h))+"")
-                #continue
-            #if K.image_data_format() != 'channels_first' and video.data.shape != (self.frames_n,self.img_w,self.img_h,self.img_c):
-                #print("Video "+video_path+" has incorrect shape "+str(video.data.shape)+", must be "+str((self.frames_n,self.img_w,self.img_h,self.img_c))+"")
-                #continue
+            if K.image_data_format() == 'channels_first' and video.data.shape != (self.img_c,self.frames_n,self.img_w,self.img_h):
+                print("Video "+video_path+" has incorrect shape "+str(video.data.shape)+", must be "+str((self.img_c,self.frames_n,self.img_w,self.img_h))+"")
+                continue
+            if K.image_data_format() != 'channels_first' and video.data.shape != (self.frames_n,self.img_w,self.img_h,self.img_c):
+                print("Video "+video_path+" has incorrect shape "+str(video.data.shape)+", must be "+str((self.frames_n,self.img_w,self.img_h,self.img_c))+"")
+                continue
             video_list.append(video_path)
         return video_list
 
@@ -175,9 +175,18 @@ class BasicGenerator(keras.callbacks.Callback):
         label_length = np.array(label_length)
         input_length = np.array(input_length)
         Y_data = np.array(Y_data)
-        X_data = np.array(X_data).astype(np.float32) / 255 # Normalize image data to [0,1], TODO: mean normalization over training data
 
-        inputs = {'the_input': X_data,
+
+
+        norm = 255
+        normal_array = np.array(X_data) / norm
+
+        print(normal_array.shape)
+
+
+        #X_data = np.array(X_data).astype(np.float32) / 255 # Normalize image data to [0,1], TODO: mean normalization over training data
+
+        inputs = {'the_input': normal_array,
                   'the_labels': Y_data,
                   'input_length': input_length,
                   'label_length': label_length,
