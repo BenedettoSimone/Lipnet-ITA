@@ -16,7 +16,7 @@ scikit image
 In this project we will use an Italian dataset containing the following sentences.
 
 
-|                 Task                  | ID  |                           Task                           | ID  |
+|               Sentence                | ID  |                           Sentence                           | ID  |
 |:-------------------------------------:|:---:|:--------------------------------------------------------:|:---:|
 |  Salve quanto costa quell' articolo?  |  0  |                   Tutto bene, grazie.                    | 10  |
 |     È in offerta, costa 10 euro.      |  1  |                Prendiamo un caffè al bar?                | 11  |
