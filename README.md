@@ -32,11 +32,11 @@ In this project we will use an Italian dataset containing the following sentence
 <br>
 
 ### 2.1 Building
-For the dataset building, we created a tool to record the videos (https://github.com/BenedettoSimone/Video-Recorder). The videos have a dimension of ``360x288 x 25fps``. Use the information provided in the repository and on the main page to replicate our work.
+For the dataset building, we created a tool to record the videos (https://github.com/BenedettoSimone/Video-Recorder). The videos have a dimension of ``360x288 x 25fps x 4s``. Use the information provided in the repository and on the main page to replicate our work.
 <br><br>After gathering the videos for each subject, we organized the dataset with the following structure.
 
 ```
-dataset:
+DATASET:
 ├───s1
 │   ├─── 0-bs.mpg
 │   ├─── 1-bs.mpg
@@ -104,11 +104,22 @@ ForcedAlignment:
 ```
 The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "word", etc.
 
-Now we have the ``aligns`` folder in the ``ForcedAlignment`` folder.
+Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
+
+## 3. Mouth extract
+Before starting to extract frames and crop the mouth area we insert the ``DATASET`` folder in the project folder and the ``align`` folder in ``Training/datasets/``.
+
+After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``120 frames`` for each video. 
+
+Finally we split the folders in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
 
 # TODO
-Insert dataset in dataset folder and align in data folder
-Run mouthextract 
+
+REDUCE FPS
+install ffmpeg exe
+install ffmpeg-python package
+run change fps
+
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
