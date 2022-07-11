@@ -44,7 +44,6 @@ if __name__ == '__main__':
         print(target_dir)
         mkdir_p(target_dir)
 
-
         index = 0
         for frame in video.mouth:
             io.imsave(os.path.join(target_dir, "mouth_{0:03d}.png".format(index)), frame)
