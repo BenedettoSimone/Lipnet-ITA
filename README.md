@@ -93,16 +93,14 @@ ForcedAlignment:
 
 3. As a final step, with the script ``alignment/alignment_converter.py``, we transformed each json file into an ``.align`` file having the following format:
 ```
-0 12000 sil
-12000 19000 word
-19000 28999 word
-28999 34000 word
-34000 40000 word
-40000 49000 word
-49000 59000 word
-59000 74000 sil
+0 46000 sil
+46000 65000 Perfetto
+65000 76000 vorrei
+76000 88000 comprarne
+88000 92000 due.
+92000 99000 sil
 ```
-The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-12 are silence, frames 12-19 are the word "word", etc.
+The first number indicates the start of that word. The second number indicates the stop. Each number represent the frame numbers x 1000. So frames 0-46 are silence, frames 46-65 are the word "Perfetto", etc.
 
 Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
 
