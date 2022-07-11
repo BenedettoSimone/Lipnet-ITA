@@ -11,7 +11,8 @@ from keras import backend as K
 
 
 class LipNet(object):
-    def __init__(self, img_c=3, img_w=100, img_h=50, frames_n=75, absolute_max_string_len=32, output_size=28):
+    # TODO output size: is equal to the number of unique words in my dict + 1 (blank symbol).
+    def __init__(self, img_c=3, img_w=100, img_h=50, frames_n=100, absolute_max_string_len=32, output_size=28):
         self.img_c = img_c
         self.img_w = img_w
         self.img_h = img_h
