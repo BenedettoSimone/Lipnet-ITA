@@ -128,7 +128,6 @@ class BasicGenerator(keras.callbacks.Callback):
         self.train_list = self.enumerate_videos(os.path.join(self.train_path, '*', '*'))
         self.val_list   = self.enumerate_videos(os.path.join(self.val_path, '*', '*'))
         self.align_hash = self.enumerate_align_hash(self.train_list + self.val_list)
-        print(self.align_hash)
         #with open(self.get_cache_path(), 'wb') as fp:
         #    pickle.dump((self.train_list, self.val_list, self.align_hash), fp)
 
@@ -180,8 +179,6 @@ class BasicGenerator(keras.callbacks.Callback):
 
         norm = 255
         normal_array = np.array(X_data) / norm
-
-        print(normal_array.shape)
 
 
         #X_data = np.array(X_data).astype(np.float32) / 255 # Normalize image data to [0,1], TODO: mean normalization over training data

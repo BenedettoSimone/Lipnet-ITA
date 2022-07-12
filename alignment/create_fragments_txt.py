@@ -1,7 +1,7 @@
 import os
 
 phrases = ['Salve quanto costa quell articolo',
-           'E in offerta, costa 10 euro',
+           'E in offerta, costa dieci euro',
            'Perfetto vorrei comprarne due.',
            'Certo ecco a lei vuole un sacchetto',
            'Si grazie e arrivederci',
