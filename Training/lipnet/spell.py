@@ -2,7 +2,8 @@ import re
 import string
 from collections import Counter
 
-# Source: https://github.com/commonsense/metanl/blob/master/metanl/token_utils.py
+# Source: https://github.com/commonsense/metanl/blob/
+# /metanl/token_utils.py
 def untokenize(words):
     """
     Untokenizing a text undoes the tokenizing operation, restoring
@@ -70,4 +71,5 @@ class Spell(object):
 
     # Correct sentence
     def sentence(self, sentence):
+        print(untokenize(self.corrections(tokenize(sentence))))
         return untokenize(self.corrections(tokenize(sentence)))
