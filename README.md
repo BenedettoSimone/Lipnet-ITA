@@ -10,6 +10,7 @@ python 3.6
 cd lipnet pip install -r requirements.txt
 zipfile package
 scikit image
+h5py 2.10.0
 ```
 
 ## 2. Dataset

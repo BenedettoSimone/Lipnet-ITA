@@ -24,7 +24,7 @@ LOG_DIR      = os.path.join(CURRENT_PATH, 'logs')
 
 PREDICT_GREEDY      = False
 PREDICT_BEAM_WIDTH  = 200
-PREDICT_DICTIONARY  = os.path.join(CURRENT_PATH,'dictionaries','grid.txt')
+PREDICT_DICTIONARY  = os.path.join(CURRENT_PATH,'dictionaries','phrases.txt')
 
 def curriculum_rules(epoch):
     return { 'sentence_length': -1, 'flip_probability': 0.5, 'jitter_probability': 0.05 }
@@ -46,6 +46,11 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
 
     # the loss calc occurs elsewhere, so use a dummy lambda func for the loss
     lipnet.model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer=adam)
+    #charging lipnet model
+    if start_epoch == 0:
+        start_file_w = os.path.join(OUTPUT_DIR,'startWeight\overlappedstartweight.h5')
+        lipnet.model.load_weights(start_file_w)
+
 
     # load preexisting trained weights for the model
     if start_epoch > 0:
@@ -71,7 +76,8 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
                         verbose=1,
                         max_q_size=5,
                         workers=2,
-                        pickle_safe=True)
+
+                               use_multiprocessing=False)
 
 if __name__ == '__main__':
     run_name = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
@@ -84,4 +90,4 @@ if __name__ == '__main__':
     # 7th parameter - frames_n
     # 8th parameter - absolute_max_string_length
     # 9th parameter - minibatch_size
-    train(run_name, 0, 5000, 3, 100, 50, 75, 54, 5)
+    train(run_name, 0, 10, 3, 100, 50, 100, 54, 19)
