@@ -1,3 +1,6 @@
+import colorama
+
+
 def text_to_labels(text):
     ret = []
     for char in text:
@@ -9,6 +12,10 @@ def text_to_labels(text):
 
 def labels_to_text(labels):
     # 26 is space, 27 is CTC blank char
+    print("=======")
+    print(colorama.Fore.LIGHTBLUE_EX)
+    print(labels)
+    print(colorama.Fore.RESET)
     text = ''
     for c in labels:
         if c >= 0 and c < 26:

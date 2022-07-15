@@ -48,7 +48,7 @@ def train(run_name, start_epoch, stop_epoch, img_c, img_w, img_h, frames_n, abso
     lipnet.model.compile(loss={'ctc': lambda y_true, y_pred: y_pred}, optimizer=adam)
     #charging lipnet model
     if start_epoch == 0:
-        start_file_w = os.path.join(OUTPUT_DIR,'startWeight\overlappedstartweight.h5')
+        start_file_w = os.path.join(OUTPUT_DIR,'startWeight/w-14-07-16-24.h5')
         lipnet.model.load_weights(start_file_w)
 
 

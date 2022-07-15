@@ -23,7 +23,7 @@ def get_list_safe(l, index, size):
 # or datasets/[train|val]/<sid>/<id>.mpg
 # datasets/align/<id>.align
 class BasicGenerator(keras.callbacks.Callback):
-    def __init__(self, dataset_path, minibatch_size, img_c, img_w, img_h, frames_n, absolute_max_string_len=30, **kwargs):
+    def __init__(self, dataset_path, minibatch_size, img_c, img_w, img_h, frames_n, absolute_max_string_len=54, **kwargs):
         self.dataset_path   = dataset_path
         self.minibatch_size = minibatch_size
         self.blank_label    = self.get_output_size() - 1
