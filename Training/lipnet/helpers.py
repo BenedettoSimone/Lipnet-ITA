@@ -14,6 +14,7 @@ def labels_to_text(labels):
     # 26 is space, 27 is CTC blank char
     print("=======")
     print(colorama.Fore.LIGHTBLUE_EX)
+    print("LABEL")
     print(labels)
     print(colorama.Fore.RESET)
     text = ''

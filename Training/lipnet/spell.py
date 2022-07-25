@@ -4,6 +4,9 @@ from collections import Counter
 
 # Source: https://github.com/commonsense/metanl/blob/
 # /metanl/token_utils.py
+import colorama
+
+
 def untokenize(words):
     """
     Untokenizing a text undoes the tokenizing operation, restoring
@@ -71,5 +74,7 @@ class Spell(object):
 
     # Correct sentence
     def sentence(self, sentence):
+        print(colorama.Fore.LIGHTYELLOW_EX)
         print(untokenize(self.corrections(tokenize(sentence))))
+        print(colorama.Fore.RESET)
         return untokenize(self.corrections(tokenize(sentence)))

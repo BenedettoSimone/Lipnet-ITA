@@ -7,7 +7,7 @@ import sys
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CURRENT_PATH)
 
-SOURCE_PATH = '../DATASET'
+SOURCE_PATH = '../../DATASET'
 SOURCE_EXTS = '*.mpg'      # Change for different video formats
 FACE_PREDICTOR_PATH = 'shape_predictor_68_face_landmarks.dat'
 TARGET_PATH = '../frames'
@@ -36,8 +36,7 @@ if __name__ == '__main__':
         video = Video(vtype='face', face_predictor_path=FACE_PREDICTOR_PATH).from_video(filepath)
 
         mkdir_p(TARGET_PATH)
-        filepath_wo_ext =  filepath[11:] # Remove extension from video file name
-        print(filepath)
+        filepath_wo_ext =  filepath[14:] # Remove extension from video file name
         target_dir = os.path.join(TARGET_PATH, filepath_wo_ext[:-4])
         # Name directory to save each processed video
         print(filepath_wo_ext)

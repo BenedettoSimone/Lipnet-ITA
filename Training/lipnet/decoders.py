@@ -1,3 +1,4 @@
+import colorama
 from keras import backend as K
 import numpy as np
 
@@ -38,6 +39,7 @@ def decode(y_pred, input_length, greedy=True, beam_width=100, top_paths=1, **kwa
 
     paths, logprobs = _decode(y_pred=y_pred, input_length=input_length,
                               greedy=greedy, beam_width=beam_width, top_paths=top_paths)
+
     if language_model is not None:
         # TODO: compute using language model
         raise NotImplementedError("Language model search is not implemented yet")
@@ -58,6 +60,8 @@ class Decoder(object):
     def decode(self, y_pred, input_length):
         decoded = decode(y_pred, input_length, greedy=self.greedy, beam_width=self.beam_width,
                          top_paths=self.top_paths, language_model=self.language_model)
+        print("YPRFED")
+        print(y_pred)
         preprocessed = []
         for output in decoded:
             out = output
