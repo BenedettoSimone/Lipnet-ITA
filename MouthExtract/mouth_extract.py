@@ -7,7 +7,7 @@ import sys
 CURRENT_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CURRENT_PATH)
 
-SOURCE_PATH = '../../DATASET'
+SOURCE_PATH = '../DATASET'
 SOURCE_EXTS = '*.mpg'      # Change for different video formats
 FACE_PREDICTOR_PATH = 'shape_predictor_68_face_landmarks.dat'
 TARGET_PATH = '../frames'
