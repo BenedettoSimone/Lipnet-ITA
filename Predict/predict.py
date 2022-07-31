@@ -17,7 +17,7 @@ import numpy as np
 
 np.random.seed(55)
 
-VIDEO_PATH = os.path.join(CURRENT_PATH,'PredictVideo','8-bs')
+VIDEO_PATH = os.path.join(CURRENT_PATH,'PredictVideo','14-bs')
 WEIGHTS_PATH = os.path.join(CURRENT_PATH,'weights99.h5')
 
 
