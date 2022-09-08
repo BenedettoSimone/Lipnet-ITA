@@ -109,7 +109,7 @@ Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
 ## 3. Mouth extract
 Before starting to extract frames and crop the mouth area we insert the ``DATASET`` folder in the project folder and the ``align`` folder in ``Training/datasets/``.
 
-After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``120 frames`` for each video. 
+After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``100 frames`` for each video. 
 
 Finally we split the folders in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
 
