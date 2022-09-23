@@ -31,6 +31,7 @@ def find_files(directory, pattern):
 
 if __name__ == '__main__':
     for filepath in find_files(SOURCE_PATH, SOURCE_EXTS):
+        print(filepath)
         print(("Processing: {}".format(filepath)))
         # vtype = face indicates input is a video
         video = Video(vtype='face', face_predictor_path=FACE_PREDICTOR_PATH).from_video(filepath)
