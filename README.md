@@ -121,6 +121,8 @@ install ffmpeg-python package
 run change fps
 
 
+Creare setup.py
+
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
 [Salerno Daniele](https://github.com/DanieleSalerno)
