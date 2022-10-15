@@ -12,6 +12,8 @@ zipfile package
 scikit image
 h5py 2.10.0
 nltk
+install ffmpeg exe
+install ffmpeg-python package
 ```
 
 ## 2. Dataset
@@ -34,7 +36,7 @@ In this project we will use an Italian dataset containing the following sentence
 <br>
 
 ### 2.1 Building
-For the dataset building, we created a tool to record the videos (https://github.com/BenedettoSimone/Video-Recorder). The videos have a dimension of ``360x288 x 25fps x 4s``. Use the information provided in the repository and on the main page to replicate our work.
+For the dataset building, we created a tool to record the videos (https://github.com/BenedettoSimone/Video-Recorder). The videos have a dimension of ``360x288 x 4s``. Use the information provided in the repository and on the main page to replicate our work.
 <br><br>After gathering the videos for each subject, we organized the dataset with the following structure.
 
 ```
@@ -48,6 +50,11 @@ DATASET:
 └───...
     └───...
 ```
+
+Since we need  ``25fps`` videos, and since the experiment was conducted by recording with different devices, we converted the videos to 25fps. To do that we executed the script ``change_fps/change_fps.py``.
+After that we replaced, with the newly created videos, the videos in the ``DATASET`` folder.
+
+
 
 ### 2.2 Forced alignment
 Then, we applied for each video the audio and text synchronization (aka forced alignment) using [Aeneas](https://github.com/readbeyond/aeneas). 
@@ -109,19 +116,13 @@ Now we have the ``align`` folder in the ``ForcedAlignment`` folder.
 ## 3. Mouth extract
 Before starting to extract frames and crop the mouth area we insert the ``DATASET`` folder in the project folder and the ``align`` folder in ``Training/datasets/``.
 
-After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``100 frames`` for each video. 
+After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``100 frames`` for each video in a new folder ``frames``. 
 
-Finally we split the folders in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
+Finally we split this folder in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
 
+## 4. Data augmentation
 # TODO
-
-REDUCE FPS
-install ffmpeg exe
-install ffmpeg-python package
-run change fps
-
-
-Creare setup.py
+Create setup.py + write installation
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
