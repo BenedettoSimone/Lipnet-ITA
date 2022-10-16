@@ -126,10 +126,7 @@ To reduce overfitting we augmented the dataset with simple transformation. To do
 
 After that we inserted the video frames of the folders ``augmented`` and ``frames`` in ``Training/datasets/train``.
 
-
-
-
-
+Finally we duplicated the align changing their names from (example: ``s10`` in ``a10``). 
 
 
 # TODO
