@@ -118,9 +118,20 @@ Before starting to extract frames and crop the mouth area we insert the ``DATASE
 
 After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``100 frames`` for each video in a new folder ``frames``. 
 
-Finally we split this folder in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
+Finally we selected the 20% of the video frames from this folder that we want to use for validation placing them in the folder ``Training/datasets/val``.
 
 ## 4. Data augmentation
+
+To reduce overfitting we augmented the dataset with simple transformation. To do that we executed the script ``dataAugmentation/flip_image.py`` that return the folder ``augmented`` containing mirrored images of the 80% of video frames remaining in ``frames`` folder. 
+
+After that we inserted the video frames of the folders ``augmented`` and ``frames`` in ``Training/datasets/train``.
+
+
+
+
+
+
+
 # TODO
 Create setup.py + write installation
 
