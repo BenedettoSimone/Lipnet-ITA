@@ -4,16 +4,21 @@ Keras implementation of the method described in the paper 'LipNet: End-to-End Se
 Reference - https://github.com/rizkiarm/LipNet
 
 
-## 1. Requirements
+
+## 1. Getting started
+
+- Python 3.6
+- [ffmmpeg](https://www.ffmpeg.org)
+
+### 1.1 Install all requirements
+<p align="center"><img src="./readme_images/req1.png"/></p>
+<p align="center"><img src="./readme_images/req2.png"/></p>
+<p align="center"><img src="./readme_images/req3.png"/></p>
+
 ```
-python 3.6
+
 cd lipnet pip install -r requirements.txt
-zipfile package
-scikit image
-h5py 2.10.0
-nltk
-install ffmpeg exe
-install ffmpeg-python package
+
 ```
 
 ## 2. Dataset
