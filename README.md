@@ -155,8 +155,19 @@ After that we trained the model for 400 epochs.
 
 <i>Note: you can find all start weights used for each training in ``Training/results/startWeight``.</i>
 
-# TODO
-+ write installation
+## 5. Prediction
+To evaluate the model we used the script ``Predict/predict.py`` placing the video for the prediction phase in the folder ``Predict/PredictVideo``. Since the training phase with the augmented data did not provide good results, we used the weights from the last step of the 600 epochs.
+
+## 6. Installation on Raspberry PI
+
+### 6.1 Install model
+Since the model was created to be used on a Raspberry PI device, we created a client server architecture. The client, after recording the video, will send the video to the server, on which the model will be installed, which will do the prediction and send it to the client. This architecture is available in the folder ``LipnetClientServer``.
+
+
+### 6.2 Install AudioToText
+
+
+
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
