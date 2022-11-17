@@ -10,16 +10,32 @@ Reference - https://github.com/rizkiarm/LipNet
 - Python 3.6
 - [ffmmpeg](https://www.ffmpeg.org)
 
-### 1.1 Install all requirements
+### 1.1 Usage
+
+To use the model, first you need to clone the repository:
+```
+git clone https://github.com/BenedettoSimone/researchProject
+```
+
+Then you can install the package:
+```
+cd researchProject/
+pip install -e .
+```
+
+Next, install the requirements:
+
+```
+pip install -r requirements.txt
+```
+<br>
+
+If you have some issue, please follow the list of requirements showed in the following images:
+
 <p align="center"><img src="./readme_images/req1.png"/></p>
 <p align="center"><img src="./readme_images/req2.png"/></p>
 <p align="center"><img src="./readme_images/req3.png"/></p>
 
-```
-
-cd lipnet pip install -r requirements.txt
-
-```
 
 ## 2. Dataset
 In this project we will use an Italian dataset containing the following sentences.
