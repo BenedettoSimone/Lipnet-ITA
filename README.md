@@ -162,6 +162,12 @@ To evaluate the model we used the script ``Predict/predict.py`` placing the vide
 
 ### 6.1 Install model
 Since the model was created to be used on a Raspberry PI device, we created a client server architecture. The client, after recording the video, will send the video to the server, on which the model will be installed, which will do the prediction and send it to the client. This architecture is available in the folder ``LipnetClientServer``.
+To use it:
+- create the folder ``DATASET/s99`` in ``LipnetClientServer``;
+- create the folder ``frames`` in ``LipnetClientServer``;
+- copy the ``shape_predictor_68_face_landmarks.dat`` from ``MouthExtract`` in ``LipnetClientServer``;
+
+After that, run the ``LipnetClientServer/server.py`` and finally ``LipnetClientServer/client/client.py``.
 
 
 ### 6.2 Install AudioToText
