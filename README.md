@@ -139,19 +139,24 @@ Before starting to extract frames and crop the mouth area we insert the ``DATASE
 
 After, we executed the script ``MouthExtract/mouth_extract.py`` that return ``100 frames`` for each video in a new folder ``frames``. 
 
-Finally we selected the 20% of the video frames from this folder that we want to use for validation placing them in the folder ``Training/datasets/val``.
+Finally we split this folder in ``Training/datasets/train`` and ``Training/datasets/val`` using 80% for training phase and 20% for validation phase.
 
-## 4. Data augmentation
+## 4. Training
+To train the model we used the script ``Traininig/train.py`` using as a start weights ``Training/results/startWeight/unseen-weights178.h5``. We made 600 epoch splitted in 5 steps. You can see the first five results in ``Training/results``. 
 
-To reduce overfitting we augmented the dataset with simple transformation. To do that we executed the script ``dataAugmentation/flip_image.py`` that return the folder ``augmented`` containing mirrored images of the 80% of video frames remaining in ``frames`` folder. 
+### 4.1 Data augmentation
+To reduce overfitting we augmented the dataset with a simple transformation. First we copied the ``Training/datasets/train`` dataset to ``frames``. Then we executed the ``dataAugmentation/flip_image.py`` script, which returns the ``augmented`` folder containing mirror images of the video frames in the ``frames`` folder. 
 
-After that we inserted the video frames of the folders ``augmented`` and ``frames`` in ``Training/datasets/train``.
+Next we inserted the video frames from the ``augmented`` folder into ``Training/datasets/train``.
 
-Finally we duplicated the align changing their names from (example: ``s10`` in ``a10``). 
+Finally we duplicated the alignments by changing their names (example: ``s10`` to ``a10``). 
 
+After that we trained the model for 400 epochs. 
+
+<i>Note: you can find all start weights used for each training in ``Training/results/startWeight``.</i>
 
 # TODO
-Create setup.py + write installation
++ write installation
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
