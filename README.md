@@ -171,9 +171,16 @@ After that, run the ``LipnetClientServer/server.py`` and finally ``LipnetClientS
 
 
 ### 6.2 Install AudioToText
-
-
-
+Install the following packages:
+```
+pip install SpeechRecognition
+```
+```
+pip install PyAudio
+```
+```
+sudo apt-get install flac
+```
 
 ## Developed by
 [Simone Benedetto](https://github.com/BenedettoSimone) <br>
