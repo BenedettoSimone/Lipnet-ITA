@@ -18,7 +18,7 @@ import numpy as np
 np.random.seed(55)
 
 VIDEO_PATH = os.path.join(CURRENT_PATH, 'frames/s99', '0-sc')
-WEIGHTS_PATH = os.path.join(CURRENT_PATH, 'weights120.h5')
+WEIGHTS_PATH = os.path.join(CURRENT_PATH, 'weights200.h5')
 
 FACE_PREDICTOR_PATH = os.path.join(CURRENT_PATH, '', 'shape_predictor_68_face_landmarks.dat')
 

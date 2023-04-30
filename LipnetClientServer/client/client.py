@@ -2,7 +2,7 @@
 import requests
 
 # api-endpoint
-URL = "http://192.168.1.142:5000/main"
+URL = "http://192.168.1.7:5000/main"
 
 
 # TODO record video
@@ -10,7 +10,7 @@ URL = "http://192.168.1.142:5000/main"
 
 
 # send video recorded
-files = {'file': open('client/video.h264', 'rb')}
+files = {'file': open('client/bbaf2n.mpg', 'rb')}
 response = requests.post(URL, files=files)
 
 # extracting data in json format
